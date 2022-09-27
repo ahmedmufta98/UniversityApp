@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "9FD3kNoxaxnWq6xZsdxc2N7eW1HaPj1e3Q+WBWaiI6AMC96gt7avvTqXkROd9NnO2I1hpgUeymQ7di7pZMAE1Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ARNI - PC 10\\Desktop\\UniversityApp\\UniversityApp\\UniversityApp.Domain\\UniversityApp.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ARNI - PC 10\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\ARNI - PC 10\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\ARNI - PC 10\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\ARNI - PC 10\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\ARNI - PC 10\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\ARNI - PC 10\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\ARNI - PC 10\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\ARNI - PC 10\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\ARNI - PC 10\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
