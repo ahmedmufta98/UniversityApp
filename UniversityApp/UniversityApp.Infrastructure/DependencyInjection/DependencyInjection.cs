@@ -139,8 +139,8 @@ namespace UniversityApp.Infrastructure.DependencyInjection
             services.AddScoped<IRequestHandler<BaseQueryAll<UniversityApp.Application.Models.User>, List<UniversityApp.Application.Models.User>>, BaseQueryAllHandler<int, UniversityApp.Application.Models.User>>();
             services.AddScoped<IRequestHandler<CreateUserCommand, UniversityApp.Domain.Entities.User>, CreateUserCommandHandler>();
             services.AddScoped<IRequestHandler<UserLoginCommand, string>, UserLoginCommandHandler>();
-            services.AddTransient<IRequest<string>, UserLoginCommand>();
-            services.AddTransient<IRequest<UniversityApp.Domain.Entities.User>, CreateUserCommand>();
+            services.AddScoped<IRequest<string>, UserLoginCommand>();
+            services.AddScoped<IRequest<UniversityApp.Domain.Entities.User>, CreateUserCommand>();
         }
     }
 }

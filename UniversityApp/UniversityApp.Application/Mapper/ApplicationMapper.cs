@@ -2,7 +2,7 @@
 
 namespace UniversityApp.Application.Mapper
 {
-    public sealed class ApplicationMapper : Profile
+    public class ApplicationMapper : Profile
     {
         public ApplicationMapper()
         {
