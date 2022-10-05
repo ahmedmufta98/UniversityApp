@@ -6,5 +6,7 @@ namespace UniversityApp.Domain.Interfaces
     {
         User? GetUserByUsernameAndPassword(string username, string password);
         Task<User> Create(User entity, string password);
+
+        Task<User?> GetById(int id);
     }
 }

@@ -40,7 +40,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(ApplicationMapper));
-builder.Services.ConfigureOAuth();
+builder.Services.ConfigureOAuth(builder.Configuration);
 builder.Services.RegisterServices();
 builder.Services.EnableCors();
 builder.Services.ConfigureMediatR();

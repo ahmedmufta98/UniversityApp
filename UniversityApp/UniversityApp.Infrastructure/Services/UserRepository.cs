@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 using UniversityApp.Domain.Entities;
@@ -66,6 +67,11 @@ namespace UniversityApp.Infrastructure.Services
             await _context.SaveChangesAsync();
 
             return entity;
+        }
+
+        public async Task<User?> GetById(int id)
+        {
+            return await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

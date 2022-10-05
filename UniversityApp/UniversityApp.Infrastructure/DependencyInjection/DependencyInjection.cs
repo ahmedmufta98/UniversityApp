@@ -48,11 +48,12 @@ namespace UniversityApp.Infrastructure.DependencyInjection
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IExamStudentQuestionRepository, ExamStudentQuestionRepository>();
+            services.AddScoped<ITokenRepository, TokenRepository>();
 
             services.AddSingleton<IAuthProvider, AuthProvider>();
         }
 
-        public static void ConfigureOAuth(this IServiceCollection services)
+        public static void ConfigureOAuth(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAuthentication(opt =>
             {
@@ -66,9 +67,9 @@ namespace UniversityApp.Infrastructure.DependencyInjection
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "http://localhost:59720",
-                    ValidAudience = "http://localhost:59720",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secretKey1234567891"))
+                    ValidIssuer = configuration.GetValue<string>("Token:Issuer"),
+                    ValidAudience = configuration.GetValue<string>("Token:Audience"),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetValue<string>("Token:SigningKey")))
                 };
             });
         }

@@ -25,6 +25,7 @@ namespace UniversityApp.Infrastructure.Persistence
         public DbSet<ExamStudentQuestion> ExamStudentQuestions { get; set; }
         public DbSet<Professor> Professors { get; set; }
         public DbSet<Question> Questions { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Subject> Subjects { get; set; }

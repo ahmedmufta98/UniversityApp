@@ -1,4 +1,5 @@
-﻿using UniversityApp.Domain.Entities;
+﻿using System.CodeDom.Compiler;
+using UniversityApp.Domain.Entities;
 
 namespace UniversityApp.Domain.Interfaces
 {
