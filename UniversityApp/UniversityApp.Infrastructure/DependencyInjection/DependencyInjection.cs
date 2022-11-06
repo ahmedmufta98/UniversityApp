@@ -13,6 +13,7 @@ using UniversityApp.Domain.CQRS.Commands;
 using UniversityApp.Domain.CQRS.Commands.BaseCommand;
 using UniversityApp.Domain.CQRS.Queries.BaseQuery;
 using UniversityApp.Domain.Interfaces;
+using UniversityApp.Domain.Responses;
 using UniversityApp.Infrastructure.OAuthProvider;
 using UniversityApp.Infrastructure.Persistence;
 using UniversityApp.Infrastructure.Services;
@@ -50,7 +51,7 @@ namespace UniversityApp.Infrastructure.DependencyInjection
             services.AddScoped<IExamStudentQuestionRepository, ExamStudentQuestionRepository>();
             services.AddScoped<ITokenRepository, TokenRepository>();
 
-            services.AddSingleton<IAuthProvider, AuthProvider>();
+            services.AddScoped<IAuthProvider, AuthProvider>();
         }
 
         public static void ConfigureOAuth(this IServiceCollection services, IConfiguration configuration)
@@ -139,8 +140,8 @@ namespace UniversityApp.Infrastructure.DependencyInjection
             services.AddScoped<IRequestHandler<BaseQueryParam<int, UniversityApp.Application.Models.User>, UniversityApp.Application.Models.User>, BaseQueryParamHandler<int, UniversityApp.Application.Models.User>>();
             services.AddScoped<IRequestHandler<BaseQueryAll<UniversityApp.Application.Models.User>, List<UniversityApp.Application.Models.User>>, BaseQueryAllHandler<int, UniversityApp.Application.Models.User>>();
             services.AddScoped<IRequestHandler<CreateUserCommand, UniversityApp.Domain.Entities.User>, CreateUserCommandHandler>();
-            services.AddScoped<IRequestHandler<UserLoginCommand, string>, UserLoginCommandHandler>();
-            services.AddScoped<IRequest<string>, UserLoginCommand>();
+            services.AddScoped<IRequestHandler<UserLoginCommand, AuthResponse>, UserLoginCommandHandler>();
+            services.AddScoped<IRequest<AuthResponse>, UserLoginCommand>();
             services.AddScoped<IRequest<UniversityApp.Domain.Entities.User>, CreateUserCommand>();
         }
     }

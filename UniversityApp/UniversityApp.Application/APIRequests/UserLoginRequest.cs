@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
+using UniversityApp.Domain.Enums;
 
 namespace UniversityApp.Application.APIRequests
 {

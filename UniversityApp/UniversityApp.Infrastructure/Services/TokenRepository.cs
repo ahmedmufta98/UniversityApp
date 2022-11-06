@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
-using UniversityApp.Application.Models;
 using UniversityApp.Domain.Entities;
 using UniversityApp.Domain.Interfaces;
-using UniversityApp.Infrastructure.OAuthProvider;
 using UniversityApp.Infrastructure.Persistence;
 
 namespace UniversityApp.Infrastructure.Services
@@ -21,8 +19,8 @@ namespace UniversityApp.Infrastructure.Services
             RefreshToken refreshToken = new()
             {
                 Token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),
-                TokenExpires = DateTime.Now.AddDays(1),
-                TokenCreated = DateTime.Now,
+                TokenExpires = DateTime.UtcNow.AddDays(1),
+                TokenCreated = DateTime.UtcNow,
                 UserId = userId
             };
 

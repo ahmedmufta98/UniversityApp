@@ -1,10 +1,11 @@
 ﻿using System.CodeDom.Compiler;
 using UniversityApp.Domain.Entities;
+using UniversityApp.Domain.Responses;
 
 namespace UniversityApp.Domain.Interfaces
 {
     public interface IAuthProvider
     {
-        string CreateToken(User user);
+        Task<AuthResponse> CreateToken(User user);
     }
 }
