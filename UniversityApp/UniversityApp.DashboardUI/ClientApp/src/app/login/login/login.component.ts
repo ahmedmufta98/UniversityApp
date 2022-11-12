@@ -7,8 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [AuthService]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
@@ -22,12 +21,15 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login(){
+  login() {
     this.userLoginRequest.Username = this.form.controls['username'].value;
-    this.userLoginRequest.Password = this.form.controls['password'].value; 
+    this.userLoginRequest.Password = this.form.controls['password'].value;
 
-    this.authService.Login(this.userLoginRequest).then(x=>{
-      this.router.navigateByUrl('/home');
+    this.authService.Login(this.userLoginRequest).subscribe(x => {
+      if (x != null) {
+        this.authService.saveAuthData(x);
+        this.router.navigateByUrl('/home');
+      }
     });
   }
 }

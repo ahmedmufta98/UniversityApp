@@ -11,6 +11,9 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './register/register/register.component';
+import { UserService } from './services/user.service';
+import { RequestService } from './services/requestService';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,7 @@ import { RegisterComponent } from './register/register/register.component';
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [],
+  providers: [RequestService, AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

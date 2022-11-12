@@ -1,21 +1,16 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { AuthResponse } from "../dtos/authResponseDto";
 import { UserLoginRequest } from "../dtos/userLoginDto";
+import { RequestService } from "./requestService";
 
 @Injectable()
-export class AuthService{
-   constructor(private http: HttpClient){}
+export class AuthService {
+   constructor(private requestService: RequestService) { }
 
-   public Login(request: UserLoginRequest):Promise<any>{
-      return this.http.post("https://localhost:7272/api/tokens/login", request).toPromise().then(x=>{
-         if(x){
-            this.saveAuthData(x);
-         }
-      });
+   public Login(request: UserLoginRequest) {
+      return this.requestService.post("tokens/login", request);
    }
 
-   saveAuthData(authData: any){
+   public saveAuthData(authData: any) {
       localStorage.setItem('accessToken', authData.accessToken);
       localStorage.setItem('refreshToken', authData.refreshToken);
       localStorage.setItem('userId', authData.userId.toString());
