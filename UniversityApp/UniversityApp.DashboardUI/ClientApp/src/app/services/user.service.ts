@@ -5,7 +5,7 @@ import { RequestService } from "./requestService";
 
 @Injectable()
 export class UserService extends BaseCrudService<User, number>{
-    constructor(protected requestService: RequestService) {
-        super(requestService, "users/");
-      }
+  constructor(protected requestService: RequestService) {
+    super(requestService, "users/");
+  }
 }

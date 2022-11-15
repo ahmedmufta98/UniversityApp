@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { AuthResponse } from "../dtos/authResponseDto";
 import { UserLoginRequest } from "../dtos/userLoginDto";
 import { RequestService } from "./requestService";
 
@@ -6,16 +8,16 @@ import { RequestService } from "./requestService";
 export class AuthService {
    constructor(private requestService: RequestService) { }
 
-   public Login(request: UserLoginRequest) {
+   public Login(request: UserLoginRequest): Observable<AuthResponse> {
       return this.requestService.post("tokens/login", request);
    }
 
-   public saveAuthData(authData: any) {
-      localStorage.setItem('accessToken', authData.accessToken);
-      localStorage.setItem('refreshToken', authData.refreshToken);
-      localStorage.setItem('userId', authData.userId.toString());
-      localStorage.setItem('role', authData.role);
-      localStorage.setItem('refreshTokenCreated', authData.refreshTokenCreated.toString());
-      localStorage.setItem('refreshTokenExpires', authData.refreshTokenExpires.toString());
+   public saveAuthData(authData: AuthResponse) {
+      localStorage.setItem('accessToken', authData.AccessToken);
+      localStorage.setItem('refreshToken', authData.RefreshToken);
+      localStorage.setItem('userId', authData.UserId.toString());
+      localStorage.setItem('role', authData.Role);
+      localStorage.setItem('refreshTokenCreated', authData.RefreshTokenCreated.toString());
+      localStorage.setItem('refreshTokenExpires', authData.RefreshTokenExpires.toString());
    }
 }
